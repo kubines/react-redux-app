@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const Area = styled.textarea`
 width: 100%;
@@ -12,6 +12,12 @@ outline: none;
 resize: none;
 overflow: auto;
 background: transparent;
+  ${props => props.editMode && css`
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    color: black;
+    padding: 0;
+  `}
 `
 
 const TextArea = (props) => {
