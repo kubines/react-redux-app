@@ -14,9 +14,7 @@ class AddTodo extends React.Component {
       todoText: initText,
       maxImportance: 6,
       activeImportance: 1,
-      
     }
-
     this.onClickAddTodo = this.onClickAddTodo.bind(this)
     this.onChangeTodoText = this.onChangeTodoText.bind(this)
     this.onFocusTodoText = this.onFocusTodoText.bind(this)
@@ -47,7 +45,6 @@ class AddTodo extends React.Component {
     this.setState({
       activeImportance: i,
     })
-    
   }
   
   onClickAddTodo() {

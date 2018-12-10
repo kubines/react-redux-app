@@ -11,8 +11,11 @@ const TodoList = (props) => {
             return (
               <Todo 
                 key={item.id}
+                id={item.id}
                 text={item.text}
                 importance={item.importance}
+                delTodo={props.delTodo}
+                editTodo={props.editTodo}
               />
             )
           })

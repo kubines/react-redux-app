@@ -6,7 +6,7 @@ const initialState = [
   }
 ]
 
-function todoReducer(state = initialState , action) {
+function todoReducer(state = initialState, action) {
   switch (action.type) {
     case 'ADD_TODO':
       return [
@@ -16,6 +16,13 @@ function todoReducer(state = initialState , action) {
           id: action.id,
         }
       ]
+    case 'DELETE_TODO':
+        return state.filter(state => state.id !== action.id)
+    case 'EDIT_TODO':
+      return state.map(
+        todo => 
+          todo.id === action.id ? {...todo, text: action.text, importance: action.importance} : todo
+      )
     default:
       return state
   }
