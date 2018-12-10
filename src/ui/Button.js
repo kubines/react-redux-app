@@ -24,6 +24,9 @@ text-transform: uppercase;
   ${props => props.small && css`
     padding: 5px 10px;
   `}
+  ${props => props.red && css`
+    background: #A63F00;
+  `}
 `
 
 const Button = (props) => {
