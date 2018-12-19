@@ -13,6 +13,7 @@ export default class Todo extends React.Component {
       editMode: false,
       id: props.id,
       text: props.text,
+      active: props.active,
       importance: props.importance,
 
     }
@@ -20,6 +21,7 @@ export default class Todo extends React.Component {
     this.onEditTodo = this.onEditTodo.bind(this)
     this.onChangeImportance = this.onChangeImportance.bind(this)
     this.onChangeTodo = this.onChangeTodo.bind(this)
+    this.onChangeCompleted = this.onChangeCompleted.bind(this)
   }
 
   onEditMode() {
@@ -36,19 +38,26 @@ export default class Todo extends React.Component {
 
   onChangeTodo(e) {
     this.setState({
-      text: e.target.value
+      text: e.target.value,
     })
   }
 
-  onEditTodo(id, text, importance) {
+  onChangeCompleted(id, active) {
+    this.setState({
+      active: !this.state.active,
+    })
+    this.props.editCompleted(id, active)
+  }
+
+  onEditTodo(id, text, importance, active) {
     this.setState({
       editMode: false,
     })
-    this.props.editTodo(id, text, importance)
+    this.props.editTodo(id, text, importance, active)
   }
 
   render() {
-    const { editMode, id, text, importance } = this.state
+    const { editMode, id, text, importance, active } = this.state
     return (
       <Box
         mt='30px'
@@ -90,9 +99,17 @@ export default class Todo extends React.Component {
           />
           <Flex>
             <Button
+              text={active ?  'completed' : 'active'}
+              onClick={() => this.onChangeCompleted(id, !active)}
+              small
+            />
+            <Box
+              mr='8px'
+            />
+            <Button
               text={editMode ? 'save' : 'edit'}
               small
-              onClick={editMode ? () => this.onEditTodo(id, text, importance) : this.onEditMode}
+              onClick={editMode ? () => this.onEditTodo(id, text, importance, active) : this.onEditMode}
             />
             <Box
               mr='8px'

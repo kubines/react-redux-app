@@ -10,7 +10,7 @@ const initText = 'enter your task'
 class AddTodo extends React.Component {
   constructor(props) {
     super(props)
-    this.state={
+    this.state = {
       todoText: initText,
       maxImportance: 6,
       activeImportance: 1,
@@ -27,18 +27,19 @@ class AddTodo extends React.Component {
       todoText: e.target.value
     })
   }
+  
   onFocusTodoText() {
-    if (this.state.todoText === initText )
+    if (this.state.todoText === initText)
       this.setState({
         todoText: ''
       })
   }
-  
+
   onBlurTodoText() {
-    if (this.state.todoText === '') 
-    this.setState({
-      todoText: initText,
-    })
+    if (this.state.todoText === '')
+      this.setState({
+        todoText: initText,
+      })
   }
 
   onChangeImportance(i) {
@@ -46,17 +47,17 @@ class AddTodo extends React.Component {
       activeImportance: i,
     })
   }
-  
+
   onClickAddTodo() {
     if (this.state.todoText === initText) {
       this.input.focus()
     }
     else
-      this.props.onAddTodo(this.state.todoText, this.state.activeImportance)
-      this.setState({
-        todoText: initText,
-        activeImportance: 1,
-      })
+      this.props.onAddTodo(this.state.todoText, this.state.activeImportance, true)
+    this.setState({
+      todoText: initText,
+      activeImportance: 1,
+    })
   }
 
   render() {
@@ -87,7 +88,7 @@ class AddTodo extends React.Component {
             borderTop: '1px solid #DAD9E2'
           }}
         >
-          <ImportanceRating 
+          <ImportanceRating
             maxImportance={maxImportance}
             importance={activeImportance}
             onClick={this.onChangeImportance}

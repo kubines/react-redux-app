@@ -53,5 +53,5 @@ const Link = (props) => {
 
 export {
   RouteLink,
-  Link
+  Link,
 }

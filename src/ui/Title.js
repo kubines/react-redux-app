@@ -27,5 +27,5 @@ const Title = (props) => {
 }
 export {
   MainTitle,
-  Title
+  Title,
 }

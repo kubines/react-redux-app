@@ -3,11 +3,11 @@ import { Box, Flex } from 'grid-styled'
 
 import ContainerTodoList from 'containers/ContainerTodoList'
 import ContainerAddTodo from 'containers/ContainerAddTodo'
+import ContainerFilter from 'containers/ContainerFilter'
 
-export default class Main extends React.Component {
-  render() {
-    return (
-      <Flex
+const Main = () => {
+  return (
+    <Flex
       flexDirection='column'
       css={{
         minHeight: '100%',
@@ -21,9 +21,11 @@ export default class Main extends React.Component {
         }}
       >
         <ContainerAddTodo />
+        <ContainerFilter />
         <ContainerTodoList />
       </Box>
     </Flex>
-    )
-  }
+  )
 }
+
+export default Main

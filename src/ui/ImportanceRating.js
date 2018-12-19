@@ -9,11 +9,11 @@ width: 14px;
 height: 14px;
 border-radius: 50%;
 background-color: #DAD9E2;
-cursor: pointer;
 transition: 0.1s ease;
   ${props => props.active && css`
     &:hover {
       opacity: 0.8;
+      cursor: pointer;
     }
   `}
   ${props => props.importance && css`

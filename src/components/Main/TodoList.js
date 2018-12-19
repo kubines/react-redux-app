@@ -3,6 +3,7 @@ import { Box } from 'grid-styled'
 
 import Todo from './Todo'
 
+// export to Container
 const TodoList = (props) => {
     return (
       <Box>
@@ -13,9 +14,11 @@ const TodoList = (props) => {
                 key={item.id}
                 id={item.id}
                 text={item.text}
+                active={item.active}
                 importance={item.importance}
-                delTodo={props.delTodo}
-                editTodo={props.editTodo}
+                delTodo={props.onDelTodo}
+                editTodo={props.onEditTodo}
+                editCompleted={props.onEditCompleted}
               />
             )
           })
