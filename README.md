@@ -1,3 +1,3 @@
-cd react-redux-app
-npm i
-npm start
+cd react-redux-app<br />
+npm i<br />
+npm start<br />
