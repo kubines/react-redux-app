@@ -145,7 +145,7 @@ function actionFetchData(url) {
   }
 }
 
-//
+// filters
 
 const Filters = {
   SHOW_ALL: 'SHOW_ALL',
