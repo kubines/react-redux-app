@@ -11,7 +11,7 @@ const App = () => {
       <Flex
         flexDirection='column'
         css={{
-          height: '100%',
+          minHeight: '100%',
           background: 'linear-gradient(245.58deg, #00CA9D -13.97%, #AEEFAA 73.92%, #FBFFC1 114.02%)',
         }}
       >

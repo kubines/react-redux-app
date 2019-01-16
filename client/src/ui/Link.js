@@ -1,6 +1,17 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import { Link as Route } from 'react-router-dom'
+
+const showRouteLink = keyframes`
+0% {
+  opacity: 0;
+  margin-top: 70px;
+}
+100% {
+  opacity: 1;
+  margin-top: 0px;
+}
+`
 
 const Router = styled(Route)`
 padding: 15px 30px;
@@ -16,9 +27,12 @@ text-align: center;
 letter-spacing: 1.2px;
 text-transform: uppercase;
 text-decoration: none;
-  &:hover {
-    opacity: 0.7;
-  }
+&:hover {
+      background: #008366 ;
+    }
+  ${props=> props.show && css`
+    animation: ${showRouteLink} 0.6s 0.3s both;
+  `}
 `
 
 const RouteLink = (props) => {

@@ -1,10 +1,20 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Box, Flex } from 'grid-styled'
 
 import Text from 'ui/Text'
 import ImportanceRaiting from 'ui/ImportanceRating'
 import Button from 'ui/Button'
 import TextArea from 'ui/TextArea'
+
+const BoxTodo = styled.div`
+width: 500px;
+margin-top: 30px;
+padding: 10px;
+background-color: #fff;
+border-radius: 5px;
+overflow: hidden;
+`
 
 export default class Todo extends React.Component {
   constructor(props) {
@@ -15,7 +25,6 @@ export default class Todo extends React.Component {
       text: props.text,
       active: props.active,
       importance: props.importance,
-
     }
     this.onEditMode = this.onEditMode.bind(this)
     this.onEditTodo = this.onEditTodo.bind(this)
@@ -59,15 +68,7 @@ export default class Todo extends React.Component {
   render() {
     const { editMode, id, text, importance, active } = this.state
     return (
-      <Box
-        mt='30px'
-        p='10px'
-        width='500px'
-        bg='#ffff'
-        css={{
-          borderRadius: '5px',
-        }}
-      >
+      <BoxTodo>
         <Box
           mt='8px'
         />
@@ -122,7 +123,7 @@ export default class Todo extends React.Component {
             />
           </Flex>
         </Flex>
-      </Box>
+      </BoxTodo>
     )
   }
 }
