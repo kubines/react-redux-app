@@ -1,4 +1,7 @@
 const initialState = [
+    {
+      load: true,
+    }
 ]
 
 function todoReducer(state = initialState, action) {

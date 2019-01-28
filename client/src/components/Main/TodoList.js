@@ -2,6 +2,7 @@ import React from 'react'
 import { Box } from 'grid-styled'
 
 import Todo from './Todo'
+import Preloader from 'ui/Preloader'
 
 export default class TodoList extends React.Component {
   componentDidMount() {
@@ -10,11 +11,15 @@ export default class TodoList extends React.Component {
     render() {
       return (
         <Box
+          mt={this.props.todos[0].load ? 50 : 0}
           css={{
             margin: '0 auto',
           }}
         >
           {
+            this.props.todos[0].load ? 
+            <Preloader />
+            :
             this.props.todos.map((item) => {
               return (
                 <Todo 
